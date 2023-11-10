@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ReservesView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Resto.Front.Api.V8Preview5" Version="8.4.6018-alpha" />
+    <PackageReference Include="System.Interactive" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="ReservesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup>
+
+</Project>
