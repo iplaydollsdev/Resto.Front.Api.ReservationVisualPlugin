@@ -115,18 +115,34 @@ namespace Resto.Front.Api.ReservationVisualPlugin
                 // Если бронь найдена, то устанавливаем статус стола в статус брони
                 if (reserveForTable != null)
                 {
+                    if (tableElement.Status != TableStatus.Reserved)
+                    {
+                        // Логируем изменение
+                        PluginContext.Log.Info($"Table {tableElement.Number} with name {tableElement.Name} changed status to Resereved");
+                    }
                     tableElement.Status = TableStatus.Reserved;
                 }
                 // Если заказы найдены,то устанавливаем статус стола в Started
                 else if (ordersForTable != null)
                 {
+                    if (tableElement.Status != TableStatus.Started)
+                    {
+                        // Логируем изменение
+                        PluginContext.Log.Info($"Table {tableElement.Number} with name {tableElement.Name} changed status to Started");
+                    }
                     tableElement.Status = TableStatus.Started;
                 }
                 // Если не нашлось ни брони, ни заказов значит наш стол свободен, присваем Free
                 else
                 {
+                    if (tableElement.Status != TableStatus.Free)
+                    {  
+                        // Логируем изменение
+                        PluginContext.Log.Info($"Table {tableElement.Number} with name {tableElement.Name} changed status to Free");
+                    }
                     tableElement.Status = TableStatus.Free;
                 }
+
             }
         }
     }
